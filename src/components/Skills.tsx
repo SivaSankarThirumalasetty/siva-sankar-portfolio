@@ -33,7 +33,7 @@ export default function Skills() {
             const Icon = icons[g.id as keyof typeof icons];
             const shown = g.skills.filter((s) => filter === 'all' || s.level === filter);
             return (
-              <Reveal key={g.id} delay={gi * 0.05} className="bg-bg p-6 sm:p-8">
+              <Reveal key={g.id} delay={gi * 0.05} className="bg-bg/75 p-6 sm:p-8">
                 <div className="flex items-center justify-between">
                   <p className="label text-lime-ink">{g.code} / {g.title}</p>
                   <Icon className="h-5 w-5 text-muted" aria-hidden />

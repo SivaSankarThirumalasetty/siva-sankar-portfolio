@@ -25,10 +25,6 @@ export const profile = {
   photo: 'images/profile.jpg' as string | null,
   photoWebp: 'images/profile.webp',
   wordmarkImage: 'images/wordmark.webp',
-  banners: [
-    { src: 'images/banner-poster', alt: 'Siva Sankar personal brand poster with the words Student, Developer, Data Analyst (aim), Problem Solver, Creator' },
-    { src: 'images/banner-studio', alt: 'Siva Sankar in a black suit in a hot-pink and chartreuse studio scene' },
-  ],
   bio: 'I am a Computer Science and Data Science student passionate about data analytics, Python programming, and artificial intelligence. I enjoy building practical projects that solve real-world problems, transforming data into meaningful insights, and exploring AI-powered solutions. My goal is to become a skilled Data Analyst while developing strong technical expertise in Python, data visualization, and intelligent applications.',
   resumePdf: 'resume/Siva-Sankar-Resume.pdf',
 };

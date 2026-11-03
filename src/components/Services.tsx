@@ -14,7 +14,7 @@ export default function Services() {
           {services.map((s, i) => {
             const Icon = icons[i % icons.length];
             return (
-              <Reveal as="li" key={s.title} delay={(i % 3) * 0.05} className="group h-full bg-bg p-6 sm:p-7 transition-colors hover:bg-surface">
+              <Reveal as="li" key={s.title} delay={(i % 3) * 0.05} className="group h-full bg-bg/75 p-6 sm:p-7 transition-colors hover:bg-surface/90">
                   <div className="flex items-center justify-between">
                     <Icon className="h-6 w-6 text-lime-ink" strokeWidth={1.5} aria-hidden />
                     <span className="font-mono text-[11px] text-muted">{String(i + 1).padStart(2, '0')}</span>

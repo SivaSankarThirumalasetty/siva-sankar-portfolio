@@ -43,7 +43,7 @@
   .container-x { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-10; }
   .section { @apply relative py-20 sm:py-28; }
   .hairline { border-color: rgb(var(--line) / 0.12); }
-  .card { @apply relative border bg-surface; border-color: rgb(var(--line) / 0.12); }
+  .card { @apply relative border bg-surface/80; border-color: rgb(var(--line) / 0.12); }
   .btn { @apply inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-semibold transition-colors duration-200 select-none; }
   .btn-lime { @apply btn bg-lime text-black hover:bg-pink; }
   .btn-pink { @apply btn bg-pink text-black hover:bg-lime; }
@@ -72,3 +72,17 @@
 /* Recharts text colours follow the theme */
 .recharts-text, .recharts-cartesian-axis-tick-value { fill: rgb(var(--muted)); font-family: 'JetBrains Mono', monospace; font-size: 11px; }
 .recharts-legend-item-text { color: rgb(var(--fg)) !important; font-size: 12px; }
+
+/* ---------- Scroll backdrop (brand images behind the page) ---------- */
+.backdrop-img { opacity: var(--backdrop-opacity); }
+.backdrop-wordmark { opacity: var(--backdrop-wordmark-opacity); }
+:root { --backdrop-opacity: 0.13; --backdrop-wordmark-opacity: 0.16; }
+.dark { --backdrop-opacity: 0.36; --backdrop-wordmark-opacity: 0.24; }
+.backdrop-vignette {
+  background:
+    linear-gradient(to bottom, rgb(var(--bg) / 0.55) 0%, transparent 18%, transparent 78%, rgb(var(--bg) / 0.7) 100%),
+    radial-gradient(ellipse 85% 75% at 50% 45%, transparent 35%, rgb(var(--bg) / 0.9) 100%);
+}
+@media (max-width: 767px) {
+  .dark { --backdrop-opacity: 0.3; --backdrop-wordmark-opacity: 0.2; }
+}

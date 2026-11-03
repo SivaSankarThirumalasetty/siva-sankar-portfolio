@@ -6,6 +6,7 @@ import Experience from './components/Experience';
 import Footer from './components/Footer';
 import Hero from './components/Hero';
 import Navbar from './components/Navbar';
+import ScrollBackdrop from './components/ScrollBackdrop';
 import Projects from './components/Projects';
 import Resume from './components/Resume';
 import Services from './components/Services';
@@ -21,8 +22,9 @@ export default function App() {
   const { theme, toggle } = useTheme();
   return (
     <div className="grain">
+      <ScrollBackdrop />
       <Navbar theme={theme} toggle={toggle} />
-      <main id="main">
+      <main id="main" className="relative z-10">
         <Hero />
         <About />
         <Skills />
@@ -43,7 +45,7 @@ export default function App() {
         <Resume />
         <Contact />
       </main>
-      <Footer />
+      <div className="relative z-10"><Footer /></div>
     </div>
   );
 }

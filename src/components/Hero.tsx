@@ -62,7 +62,6 @@ function Portrait() {
 export default function Hero() {
   return (
     <section id="home" className="relative min-h-[100svh] overflow-hidden pt-24 pb-16 sm:pt-28 grid-bg">
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-bg" aria-hidden />
       <div className="pointer-events-none absolute left-0 top-1/3 h-px w-1/3 bg-gradient-to-r from-pink to-transparent" aria-hidden />
 
       <div className="container-x relative grid gap-12 lg:grid-cols-12 lg:items-center">

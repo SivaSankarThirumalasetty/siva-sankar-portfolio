@@ -4,21 +4,7 @@ import { ExtLink, GithubIcon, LinkedinIcon } from './ui';
 
 export default function Footer() {
   return (
-    <footer className="border-t hairline bg-bg">
-      <div className="container-x pt-14">
-        <ul className="grid gap-4 md:grid-cols-2" aria-label="Brand images">
-          {profile.banners.map((b) => (
-            <li key={b.src} className="group relative overflow-hidden border hairline bg-jet aspect-[16/9]">
-              <picture>
-                <source srcSet={asset(b.src + '.webp')} type="image/webp" />
-                <img src={asset(b.src + '.jpg')} alt={b.alt} loading="lazy" decoding="async" width={1600} height={901}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
-              </picture>
-              <span className="absolute left-0 top-0 h-0.5 w-0 bg-pink transition-all duration-500 group-hover:w-full" aria-hidden />
-            </li>
-          ))}
-        </ul>
-      </div>
+    <footer className="border-t hairline bg-bg/60">
       <div className="container-x py-14">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-5">
