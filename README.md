@@ -3,6 +3,8 @@
 Single-page portfolio for **Thirumalasetty Siva Sankar** (B.Tech CSD, Class of 2029).
 Brand palette: Jet Black `#000000` · Hot Pink `#FF1493` · Chartreuse `#7FFF00`.
 
+**Live:** https://sivasankarthirumalasetty.github.io/siva-sankar-portfolio/ (GitHub Pages; auto-deploys on every push to `main` via `.github/workflows/deploy.yml`).
+
 Stack: React 18 · TypeScript · Vite 5 · Tailwind CSS 3 · Framer Motion · Recharts · Lucide.
 It's a static site with no backend. Hosting is free on GitHub Pages or Cloudflare Pages.
 
