@@ -8,7 +8,6 @@ import react from '@vitejs/plugin-react';
 function seoFiles(siteUrl: string | undefined): Plugin {
   return {
     name: 'seo-files',
-    apply: 'build',
     generateBundle() {
       const url = siteUrl ? siteUrl.replace(/\/?$/, '/') : undefined;
       const robots = ['User-agent: *', 'Allow: /', url ? `Sitemap: ${url}sitemap.xml` : ''].filter(Boolean).join('\n') + '\n';
@@ -21,6 +20,14 @@ function seoFiles(siteUrl: string | undefined): Plugin {
           source: `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url><loc>${url}</loc><lastmod>${today}</lastmod></url>\n</urlset>\n`,
         });
       }
+    },
+    // With a known site URL, make social-preview and canonical URLs absolute.
+    transformIndexHtml(html) {
+      if (!siteUrl) return html;
+      const url = siteUrl.replace(/\/?$/, '/');
+      return html
+        .replace('content="og-image.jpg"', `content="${url}og-image.jpg"`)
+        .replace('</title>', `</title>\n    <link rel="canonical" href="${url}" />\n    <meta property="og:url" content="${url}" />`);
     },
   };
 }
