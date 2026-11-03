@@ -20,7 +20,7 @@ export default function Skills() {
         <div className="mb-8 flex flex-wrap items-center gap-2" role="group" aria-label="Filter skills">
           {([['all', 'All skills'], ['practised', 'Practised'], ['learning', 'Currently learning']] as [Filter, string][]).map(([k, l]) => (
             <button key={k} type="button" onClick={() => setFilter(k)} aria-pressed={filter === k}
-              className={`px-4 py-2 font-mono text-xs uppercase tracking-[0.1em] border transition-colors ${filter === k ? 'bg-pink text-black border-pink' : 'hairline text-muted hover:text-fg hover:border-pink'}`}>
+              className={`px-4 py-2 font-mono text-xs uppercase tracking-[0.1em] border transition-colors ${filter === k ? 'bg-lime text-onaccent border-lime rounded-md' : 'hairline rounded-md text-muted hover:text-fg hover:border-lime'}`}>
               {k === 'practised' && <span className="mr-2 inline-block h-2 w-2 bg-lime align-middle" aria-hidden />}
               {k === 'learning' && <span className="mr-2 inline-block h-2 w-2 border border-pink align-middle" aria-hidden />}
               {l}
@@ -33,7 +33,7 @@ export default function Skills() {
             const Icon = icons[g.id as keyof typeof icons];
             const shown = g.skills.filter((s) => filter === 'all' || s.level === filter);
             return (
-              <Reveal key={g.id} delay={gi * 0.05} className="bg-bg/75 p-6 sm:p-8">
+              <Reveal key={g.id} delay={gi * 0.05} className="bg-bg p-6 sm:p-8">
                 <div className="flex items-center justify-between">
                   <p className="label text-lime-ink">{g.code} / {g.title}</p>
                   <Icon className="h-5 w-5 text-muted" aria-hidden />
@@ -48,7 +48,7 @@ export default function Skills() {
                         <button type="button" onClick={() => setOpenKey(open ? null : key)} aria-expanded={open}
                           className="group flex w-full items-center gap-3 py-3 text-left">
                           <span className={`h-2 w-2 shrink-0 ${s.level === 'practised' ? 'bg-lime' : 'border border-pink'}`} aria-hidden />
-                          <span className="flex-1 font-medium group-hover:text-pink-ink transition-colors">{s.name}</span>
+                          <span className="flex-1 font-medium group-hover:text-lime-ink transition-colors">{s.name}</span>
                           <span className={`font-mono text-[10px] uppercase tracking-[0.12em] ${s.level === 'practised' ? 'text-lime-ink' : 'text-pink-ink'}`}>
                             {s.level === 'practised' ? 'practised' : 'learning'}
                           </span>

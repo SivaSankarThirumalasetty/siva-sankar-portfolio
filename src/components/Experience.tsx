@@ -14,7 +14,7 @@ export default function Experience() {
                 <span className="absolute -left-[7px] top-1.5 h-3.5 w-3.5 bg-lime" aria-hidden />
                 <p className="font-mono text-sm text-lime-ink">{e.start} — {e.end}</p>
                 <div className="card mt-4 p-6 sm:p-8 max-w-3xl">
-                  <span className="absolute right-0 top-0 h-px w-24 bg-pink" aria-hidden />
+
                   <div className="flex flex-wrap items-center gap-3">
                     <Briefcase className="h-5 w-5 text-pink-ink" aria-hidden />
                     <h3 className="text-2xl font-bold">{e.org}</h3>
@@ -26,15 +26,15 @@ export default function Experience() {
                   <ul className="mt-2 divide-y divide-fg/10 border-y hairline">
                     {e.projects.map((p) => (
                       <li key={p.url}>
-                        <ExtLink href={p.url} className="group flex items-center justify-between gap-3 py-3 text-sm hover:text-pink-ink">
-                          <span>{p.title}</span><ArrowUpRight className="h-4 w-4 shrink-0 text-muted group-hover:text-pink-ink" aria-hidden />
+                        <ExtLink href={p.url} className="group flex items-center justify-between gap-3 py-3 text-sm hover:text-lime-ink">
+                          <span>{p.title}</span><ArrowUpRight className="h-4 w-4 shrink-0 text-muted group-hover:text-lime-ink" aria-hidden />
                         </ExtLink>
                       </li>
                     ))}
                   </ul>
                   <p className="mt-4 font-mono text-[11px] text-muted">{e.credential}</p>
                   <a href="#certificates" onClick={() => window.dispatchEvent(new CustomEvent('open-cert', { detail: e.certificateId }))}
-                    className="mt-6 inline-flex items-center gap-2 text-sm font-semibold underline decoration-pink underline-offset-4 hover:text-pink-ink">
+                    className="mt-6 inline-flex items-center gap-2 text-sm font-semibold underline decoration-pink underline-offset-4 hover:text-lime-ink">
                     <Award className="h-4 w-4" aria-hidden /> View internship certificate
                   </a>
                 </div>

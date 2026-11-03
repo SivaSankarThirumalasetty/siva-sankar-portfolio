@@ -21,10 +21,9 @@ export const profile = {
   meta: 'B.TECH CSD · CLASS OF 2029',
   /** Set to false the moment this stops being true — the hero badge hides automatically. */
   openToInternships: true,
-  /** Owner-supplied portrait (circular artwork with neon ring). null = placeholder. */
+  /** Owner-supplied portrait (neutral-toned crop). null = placeholder. */
   photo: 'images/profile.jpg' as string | null,
   photoWebp: 'images/profile.webp',
-  wordmarkImage: 'images/wordmark.webp',
   bio: 'I am a Computer Science and Data Science student passionate about data analytics, Python programming, and artificial intelligence. I enjoy building practical projects that solve real-world problems, transforming data into meaningful insights, and exploring AI-powered solutions. My goal is to become a skilled Data Analyst while developing strong technical expertise in Python, data visualization, and intelligent applications.',
   resumePdf: 'resume/Siva-Sankar-Resume.pdf',
 };

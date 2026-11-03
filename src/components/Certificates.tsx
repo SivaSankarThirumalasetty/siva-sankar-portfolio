@@ -9,7 +9,7 @@ const cats: ('All' | CertCategory)[] = ['All', 'AI & Generative AI', 'Python & P
 function Thumb({ c }: { c: Certificate }) {
   if (c.image) {
     return <img src={asset(c.image.replace("previews/", "previews/thumbs/"))} alt={`Certificate: ${c.title}, issued by ${c.issuer}`} loading="lazy" decoding="async"
-      className="h-full w-full object-contain bg-black p-2 transition-transform duration-500 group-hover:scale-[1.04]" width={640} height={480} />;
+      className="h-full w-full object-contain bg-fg/[0.03] p-3 transition-transform duration-500 group-hover:scale-[1.04]" width={640} height={480} />;
   }
   return (
     <div className="h-full w-full grid-bg bg-jet grid place-items-center p-4 text-center">
@@ -48,14 +48,14 @@ export default function Certificates() {
           <div className="flex flex-wrap gap-2" role="group" aria-label="Filter certificates by category">
             {visibleCats.map((c) => (
               <button key={c} type="button" onClick={() => setCat(c)} aria-pressed={cat === c}
-                className={`px-3 py-2 font-mono text-[11px] uppercase tracking-[0.08em] border transition-colors ${cat === c ? 'bg-pink text-black border-pink' : 'hairline text-muted hover:text-fg hover:border-pink'}`}>{c}</button>
+                className={`px-3 py-2 font-mono text-[11px] uppercase tracking-[0.08em] border transition-colors ${cat === c ? 'bg-lime text-onaccent border-lime rounded-md' : 'hairline rounded-md text-muted hover:text-fg hover:border-lime'}`}>{c}</button>
             ))}
           </div>
           <label className="relative block lg:w-72">
             <span className="sr-only">Search certificates by title</span>
             <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted" aria-hidden />
             <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search by title…"
-              className="w-full border hairline bg-transparent py-2.5 pl-9 pr-3 text-sm placeholder:text-muted focus:border-lime focus:outline-none" />
+              className="w-full rounded-md border hairline bg-transparent py-2.5 pl-9 pr-3 text-sm placeholder:text-muted focus:border-lime focus:outline-none" />
           </label>
         </div>
 
@@ -65,14 +65,14 @@ export default function Certificates() {
           {list.map((c, i) => (
             <Reveal as="li" key={c.id} delay={(i % 3) * 0.05} className="h-full">
                 <button type="button" onClick={() => setOpenId(c.id)}
-                  className="group card flex h-full w-full flex-col text-left !border-lime/30 hover:!border-pink transition-colors">
+                  className="group card flex h-full w-full flex-col overflow-hidden text-left hover:!border-lime/60 transition-colors">
                   <div className="relative aspect-[4/3] overflow-hidden border-b hairline">
                     <Thumb c={c} />
-                    <span className="absolute left-0 top-0 h-0.5 w-0 bg-pink transition-all duration-300 group-hover:w-full" aria-hidden />
+                    
                   </div>
                   <div className="flex flex-1 flex-col p-5">
                     <p className="label text-lime-ink">{c.kind}</p>
-                    <h3 className="mt-2 font-display text-lg font-semibold leading-snug group-hover:text-pink-ink transition-colors">{c.title}</h3>
+                    <h3 className="mt-2 font-display text-lg font-semibold leading-snug group-hover:text-lime-ink transition-colors">{c.title}</h3>
                     {c.note && <p className="mt-2 text-sm text-muted">{c.note}</p>}
                     <p className="mt-auto pt-4 font-mono text-xs text-muted">{c.issuer}{c.date ? ` · ${c.date}` : ''}</p>
                   </div>
@@ -85,7 +85,7 @@ export default function Certificates() {
       <Modal open={!!current} onClose={() => setOpenId(null)} title={current?.title ?? ''} wide>
         {current && (
           <div className="grid gap-8 lg:grid-cols-5">
-            <div className="lg:col-span-3 border border-lime/30 bg-black">
+            <div className="lg:col-span-3 overflow-hidden rounded-lg border hairline bg-fg/[0.04]">
               {current.image ? (
                 <img src={asset(current.image)} alt={`Full certificate: ${current.title}, issued by ${current.issuer}`} className="w-full h-auto object-contain" decoding="async" />
               ) : (

@@ -12,19 +12,19 @@ function DocShieldPreview() {
   return (
     <div className="h-full bg-jet p-4 sm:p-5 font-mono text-[11px] text-white/80">
       <div className="flex items-center justify-between border-b border-white/10 pb-3">
-        <span className="text-lime">DOCSHIELD // SCREENING CONSOLE</span><span className="text-white/40">advisory</span>
+        <span className="text-brandteal">DOCSHIELD // SCREENING CONSOLE</span><span className="text-white/40">advisory</span>
       </div>
       <div className="mt-4 grid grid-cols-5 gap-3">
         <div className="col-span-2 aspect-[3/4] border border-white/15 grid-bg relative">
-          <div className="absolute left-2 top-2 h-6 w-5 border border-lime/60" />
+          <div className="absolute left-2 top-2 h-6 w-5 border border-brandteal/60" />
           <div className="absolute inset-x-2 bottom-2 space-y-1">{[0, 1].map((i) => <div key={i} className="h-1 bg-white/20" />)}</div>
-          <div className="absolute right-3 top-8 h-6 w-6 rounded-full bg-pink/40 blur-[6px]" />
+          <div className="absolute right-3 top-8 h-6 w-6 rounded-full bg-brandindigo/40 blur-[6px]" />
         </div>
         <ul className="col-span-3 space-y-2">
           {rows.map(([l, s]) => (
             <li key={l} className="flex items-center justify-between gap-2 border border-white/10 px-2 py-1.5">
               <span className="truncate">{l}</span>
-              <span className={s === 'ok' ? 'text-lime' : s === 'flag' ? 'text-pink' : 'text-white/50'}>{s === 'ok' ? 'PASS' : s === 'flag' ? 'REVIEW' : 'LOW-Q'}</span>
+              <span className={s === 'ok' ? 'text-brandteal' : s === 'flag' ? 'text-brandindigo' : 'text-white/50'}>{s === 'ok' ? 'PASS' : s === 'flag' ? 'REVIEW' : 'LOW-Q'}</span>
             </li>
           ))}
           <li className="pt-1 text-white/50">→ manual review recommended</li>
@@ -36,10 +36,10 @@ function DocShieldPreview() {
 
 function SentimentPreview() {
   // Real class split after cleaning, as reported in the project README (n = 14,427 per README; shares as printed).
-  const d = [{ l: 'Negative', v: 62.7, c: '#FF1493' }, { l: 'Neutral', v: 21.2, c: '#6B6B6B' }, { l: 'Positive', v: 16.1, c: '#7FFF00' }];
+  const d = [{ l: 'Negative', v: 62.7, c: '#818CF8' }, { l: 'Neutral', v: 21.2, c: '#4B5563' }, { l: 'Positive', v: 16.1, c: '#2DD4BF' }];
   return (
     <div className="h-full bg-jet p-4 sm:p-5 font-mono text-[11px] text-white/80">
-      <div className="flex justify-between border-b border-white/10 pb-3"><span className="text-lime">SENTIMENT // CLASS SPLIT</span><span className="text-white/40">real · README</span></div>
+      <div className="flex justify-between border-b border-white/10 pb-3"><span className="text-brandteal">SENTIMENT // CLASS SPLIT</span><span className="text-white/40">real · README</span></div>
       <ul className="mt-5 space-y-4">
         {d.map((x) => (
           <li key={x.l}>
@@ -56,16 +56,16 @@ function SentimentPreview() {
 function AnalyticsPreview() {
   return (
     <div className="h-full bg-jet p-4 sm:p-5 font-mono text-[11px] text-white/80">
-      <div className="flex justify-between border-b border-white/10 pb-3"><span className="text-lime">ANALYTICS // CODEALPHA</span><span className="text-white/40">3 repos</span></div>
+      <div className="flex justify-between border-b border-white/10 pb-3"><span className="text-brandteal">ANALYTICS // CODEALPHA</span><span className="text-white/40">3 repos</span></div>
       <div className="mt-4 grid grid-cols-3 gap-2">
         {['clean()', 'explore()', 'report()'].map((t, i) => (
-          <div key={t} className={`border px-2 py-3 ${i === 1 ? 'border-pink/60' : 'border-white/15'}`}>
-            <span className={i === 1 ? 'text-pink' : 'text-lime'}>{t}</span>
+          <div key={t} className={`border px-2 py-3 ${i === 1 ? 'border-brandindigo/60' : 'border-white/15'}`}>
+            <span className={i === 1 ? 'text-brandindigo' : 'text-brandteal'}>{t}</span>
             <div className="mt-2 space-y-1">{[70, 45, 85].map((w, j) => <div key={j} className="h-1 bg-white/15" style={{ width: `${w - i * 8}%` }} />)}</div>
           </div>
         ))}
       </div>
-      <svg viewBox="0 0 240 50" className="mt-4 w-full"><polyline fill="none" stroke="#7FFF00" strokeWidth="1.5" points="0,40 30,34 60,38 90,22 120,26 150,14 180,18 210,8 240,12" /></svg>
+      <svg viewBox="0 0 240 50" className="mt-4 w-full"><polyline fill="none" stroke="#2DD4BF" strokeWidth="1.5" points="0,40 30,34 60,38 90,22 120,26 150,14 180,18 210,8 240,12" /></svg>
     </div>
   );
 }
@@ -95,7 +95,7 @@ function ProjectCard({ p, onOpen, flip }: { p: Project; onOpen: () => void; flip
   const Preview = previews[p.id];
   return (
     <Tilt>
-      <article className="group card grid overflow-hidden lg:grid-cols-12 hover:border-pink/60 transition-colors" aria-labelledby={`${p.id}-title`}>
+      <article className="group card grid overflow-hidden lg:grid-cols-12 hover:border-lime/60 transition-colors" aria-labelledby={`${p.id}-title`}>
         <div className={`relative lg:col-span-6 min-h-[240px] border-b lg:border-b-0 hairline ${flip ? 'lg:order-2 lg:border-l' : 'lg:border-r'}`}>
           <div className="absolute inset-0 transition-transform duration-500 group-hover:scale-[1.02]"><Preview /></div>
           {p.id !== 'sentiment' && <span className="absolute right-3 bottom-3 font-mono text-[10px] text-white/40">illustration</span>}
@@ -106,7 +106,7 @@ function ProjectCard({ p, onOpen, flip }: { p: Project; onOpen: () => void; flip
             <StatusPill tone={statusTone(p.status)}>{p.status}</StatusPill>
           </div>
           <p className="label mt-6 text-lime-ink">{p.category}</p>
-          <h3 id={`${p.id}-title`} className="mt-2 text-3xl sm:text-4xl font-bold tracking-tight group-hover:text-pink-ink transition-colors">{p.title}</h3>
+          <h3 id={`${p.id}-title`} className="mt-2 text-3xl sm:text-4xl font-bold tracking-tight group-hover:text-lime-ink transition-colors">{p.title}</h3>
           <p className="mt-1 text-fg/80 font-display">{p.short}</p>
           <p className="mt-4 text-muted leading-relaxed">{p.description}</p>
           {p.facts && (
@@ -171,13 +171,13 @@ export default function Projects() {
         <Reveal className="mt-16">
           <div className="flex flex-wrap items-end justify-between gap-4 border-b hairline pb-4">
             <h3 className="font-display text-2xl sm:text-3xl font-bold">More on <span className="text-lime-ink">GitHub</span></h3>
-            <ExtLink href={links.github} className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.12em] text-muted hover:text-pink-ink"><GithubIcon /> All repositories <ArrowUpRight className="h-3.5 w-3.5" aria-hidden /></ExtLink>
+            <ExtLink href={links.github} className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.12em] text-muted hover:text-lime-ink"><GithubIcon /> All repositories <ArrowUpRight className="h-3.5 w-3.5" aria-hidden /></ExtLink>
           </div>
           <ul className="mt-6 grid gap-5 md:grid-cols-3">
             {moreProjects.map((m) => (
-              <li key={m.title} className="card group flex flex-col p-6 hover:border-pink/60 transition-colors">
+              <li key={m.title} className="card group flex flex-col p-6 hover:border-lime/60 transition-colors">
                 <GithubIcon className="h-5 w-5 text-lime-ink" />
-                <h4 className="mt-4 font-display text-xl font-bold group-hover:text-pink-ink transition-colors">{m.title}</h4>
+                <h4 className="mt-4 font-display text-xl font-bold group-hover:text-lime-ink transition-colors">{m.title}</h4>
                 <p className="mt-3 text-sm text-muted leading-relaxed">{m.blurb}</p>
                 {m.note && <p className="mt-3 text-xs text-fg/80 border-l-2 border-pink pl-3">{m.note}</p>}
                 <ul className="mt-4 flex flex-wrap gap-1.5" aria-label="Technologies">{m.tags.map((t) => <li key={t} className="chip">{t}</li>)}</ul>

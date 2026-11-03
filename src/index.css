@@ -2,29 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Theme tokens. Brand: Jet Black #000, Hot Pink #FF1493, Chartreuse #7FFF00.
-   *-ink tokens are the same hues used for small TEXT; in light mode they are
-   darkened shades of pink/chartreuse so small text meets WCAG AA on white. */
+/* Theme tokens — calm charcoal + teal (primary) + indigo (secondary).
+   All values pass WCAG AA for text on their background. */
 :root {
-  --bg: 250 250 248;
+  --bg: 248 250 252;        /* slate-50  */
   --surface: 255 255 255;
-  --fg: 10 10 10;
-  --muted: 82 82 82;
-  --line: 0 0 0;
-  --pink-ink: 194 0 107;
-  --lime-ink: 52 110 0;
-  --grain-opacity: 0.025;
+  --fg: 15 23 42;           /* slate-900 */
+  --muted: 71 85 105;       /* slate-600 */
+  --line: 15 23 42;
+  --accent: 15 118 110;     /* teal-700  */
+  --accent-2: 79 70 229;    /* indigo-600 */
+  --on-accent: 255 255 255;
   color-scheme: light;
 }
 .dark {
-  --bg: 0 0 0;
-  --surface: 10 10 10;
-  --fg: 240 240 240;
-  --muted: 168 168 168;
+  --bg: 11 13 16;           /* soft charcoal */
+  --surface: 19 22 27;
+  --fg: 229 231 235;
+  --muted: 156 163 175;
   --line: 255 255 255;
-  --pink-ink: 255 20 147;
-  --lime-ink: 127 255 0;
-  --grain-opacity: 0.05;
+  --accent: 45 212 191;     /* teal-400 */
+  --accent-2: 129 140 248;  /* indigo-400 */
+  --on-accent: 4 47 46;
   color-scheme: dark;
 }
 
@@ -32,9 +31,8 @@
   html { scroll-behavior: smooth; scroll-padding-top: 72px; -webkit-text-size-adjust: 100%; }
   body { @apply bg-bg text-fg font-sans antialiased; transition: background-color .25s ease, color .25s ease; overflow-x: hidden; }
   h1, h2, h3, h4 { @apply font-display; }
-  ::selection { background: #FF1493; color: #000; }
-  :focus-visible { outline: 2px solid #FF1493; outline-offset: 3px; }
-  .dark :focus-visible { outline-color: #7FFF00; }
+  ::selection { background: rgb(var(--accent) / 0.3); }
+  :focus-visible { outline: 2px solid rgb(var(--accent)); outline-offset: 3px; }
   img { max-width: 100%; }
 }
 
@@ -43,25 +41,19 @@
   .container-x { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-10; }
   .section { @apply relative py-20 sm:py-28; }
   .hairline { border-color: rgb(var(--line) / 0.12); }
-  .card { @apply relative border bg-surface/80; border-color: rgb(var(--line) / 0.12); }
-  .btn { @apply inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-semibold transition-colors duration-200 select-none; }
-  .btn-lime { @apply btn bg-lime text-black hover:bg-pink; }
-  .btn-pink { @apply btn bg-pink text-black hover:bg-lime; }
-  .btn-ghost { @apply btn border text-fg hover:border-pink hover:text-pink-ink; border-color: rgb(var(--line) / 0.25); }
-  .chip { @apply inline-flex items-center gap-1.5 border px-2.5 py-1 font-mono text-[11px] text-muted; border-color: rgb(var(--line) / 0.15); }
-}
-
-/* Subtle film grain over the whole page */
-.grain::before {
-  content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 60; opacity: var(--grain-opacity);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  .card { @apply relative border bg-surface rounded-lg; border-color: rgb(var(--line) / 0.1); }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 text-sm font-semibold transition-colors duration-200 select-none; }
+  .btn-lime { @apply btn bg-lime text-onaccent hover:bg-lime/85; }
+  .btn-pink { @apply btn bg-lime text-onaccent hover:bg-lime/85; }
+  .btn-ghost { @apply btn border text-fg hover:border-lime hover:text-lime-ink; border-color: rgb(var(--line) / 0.2); }
+  .chip { @apply inline-flex items-center gap-1.5 rounded border px-2.5 py-1 font-mono text-[11px] text-muted; border-color: rgb(var(--line) / 0.12); }
 }
 
 .grid-bg {
   background-image:
-    linear-gradient(rgb(var(--lime-ink) / 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(var(--lime-ink) / 0.07) 1px, transparent 1px);
-  background-size: 56px 56px;
+    linear-gradient(rgb(var(--line) / 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(var(--line) / 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -72,17 +64,3 @@
 /* Recharts text colours follow the theme */
 .recharts-text, .recharts-cartesian-axis-tick-value { fill: rgb(var(--muted)); font-family: 'JetBrains Mono', monospace; font-size: 11px; }
 .recharts-legend-item-text { color: rgb(var(--fg)) !important; font-size: 12px; }
-
-/* ---------- Scroll backdrop (brand images behind the page) ---------- */
-.backdrop-img { opacity: var(--backdrop-opacity); }
-.backdrop-wordmark { opacity: var(--backdrop-wordmark-opacity); }
-:root { --backdrop-opacity: 0.13; --backdrop-wordmark-opacity: 0.16; }
-.dark { --backdrop-opacity: 0.36; --backdrop-wordmark-opacity: 0.24; }
-.backdrop-vignette {
-  background:
-    linear-gradient(to bottom, rgb(var(--bg) / 0.55) 0%, transparent 18%, transparent 78%, rgb(var(--bg) / 0.7) 100%),
-    radial-gradient(ellipse 85% 75% at 50% 45%, transparent 35%, rgb(var(--bg) / 0.9) 100%);
-}
-@media (max-width: 767px) {
-  .dark { --backdrop-opacity: 0.3; --backdrop-wordmark-opacity: 0.2; }
-}

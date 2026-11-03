@@ -64,8 +64,8 @@ const DATA = {
   ],
 };
 
-const PINK = '#C2006B';   // print-safe shade of Hot Pink
-const LIME = '#4E9A06';   // print-safe shade of Chartreuse
+const PINK = '#4F46E5';   // indigo-600
+const LIME = '#0F766E';   // teal-700
 const INK = '#111111';
 const MUTED = '#555555';
 
@@ -78,9 +78,7 @@ const W = doc.page.width - 92;
 const X = 46;
 
 // Header band
-doc.rect(0, 0, doc.page.width, 6).fill('#000');
-doc.rect(0, 6, 140, 3).fill('#FF1493');
-doc.rect(140, 6, 50, 3).fill('#7FFF00');
+doc.rect(0, 0, doc.page.width, 5).fill('#0F766E');
 doc.fillColor(INK).font('Helvetica-Bold').fontSize(21).text(DATA.name, X, 30);
 doc.fillColor(PINK).font('Helvetica-Bold').fontSize(10.5).text(DATA.title, X, doc.y + 2);
 doc.fillColor(MUTED).font('Helvetica').fontSize(9).text(DATA.contact.join('   |   '), X, doc.y + 5);

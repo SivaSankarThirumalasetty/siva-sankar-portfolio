@@ -20,7 +20,7 @@ export default function Resume() {
 
           <Reveal className="lg:col-span-8 order-1 lg:order-2" delay={0.05}>
             <article className="card p-6 sm:p-10 font-sans text-[15px]" aria-label="Resume preview">
-              <span className="absolute right-0 top-0 h-1 w-32 bg-pink" aria-hidden />
+
               <header className="border-b hairline pb-6">
                 <h3 className="text-3xl font-bold">{profile.name}</h3>
                 <p className="mt-1 text-pink-ink font-medium">{profile.title}</p>

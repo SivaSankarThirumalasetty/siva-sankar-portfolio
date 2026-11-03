@@ -12,7 +12,7 @@ export function ThemeToggle({ theme, toggle }: { theme: Theme; toggle: () => voi
     <button
       type="button"
       onClick={toggle}
-      className="grid h-10 w-10 place-items-center border hairline text-fg hover:text-pink-ink hover:border-pink transition-colors"
+      className="grid h-10 w-10 place-items-center rounded-md border hairline text-fg hover:text-lime-ink hover:border-lime transition-colors"
       aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
       title={dark ? 'Light mode' : 'Dark mode'}
     >
@@ -43,10 +43,10 @@ export default function Navbar({ theme, toggle }: { theme: Theme; toggle: () => 
 
   return (
     <header className={`fixed inset-x-0 top-0 z-50 border-b transition-colors ${scrolled ? 'bg-bg/85 backdrop-blur-md hairline' : 'border-transparent bg-transparent'}`}>
-      <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-50 focus:bg-lime focus:px-3 focus:py-2 focus:text-black">Skip to content</a>
+      <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-50 focus:bg-lime focus:px-3 focus:py-2 focus:text-onaccent">Skip to content</a>
       <nav className="container-x flex h-16 items-center justify-between gap-4" aria-label="Primary">
         <a href="#home" className="group flex items-center gap-2 font-display text-[15px] font-bold tracking-[0.14em]">
-          <span className="h-2 w-2 bg-lime group-hover:bg-pink transition-colors" aria-hidden />
+          <span className="h-2 w-2 rounded-full bg-lime" aria-hidden />
           {profile.wordmark}
         </a>
 
@@ -58,10 +58,10 @@ export default function Navbar({ theme, toggle }: { theme: Theme; toggle: () => 
                 <a
                   href={`#${n.id}`}
                   aria-current={isActive ? 'true' : undefined}
-                  className={`relative px-3 py-2 font-mono text-[12px] uppercase tracking-[0.12em] transition-colors ${isActive ? 'text-pink-ink' : 'text-muted hover:text-fg'}`}
+                  className={`relative px-3 py-2 font-mono text-[12px] uppercase tracking-[0.12em] transition-colors ${isActive ? 'text-lime-ink' : 'text-muted hover:text-fg'}`}
                 >
                   {n.label}
-                  {isActive && <motion.span layoutId="nav-underline" className="absolute inset-x-3 -bottom-0.5 h-px bg-pink" />}
+                  {isActive && <motion.span layoutId="nav-underline" className="absolute inset-x-3 -bottom-0.5 h-0.5 rounded-full bg-lime" />}
                 </a>
               </li>
             );
@@ -75,7 +75,7 @@ export default function Navbar({ theme, toggle }: { theme: Theme; toggle: () => 
           </a>
           <button
             type="button"
-            className="lg:hidden grid h-10 w-10 place-items-center border hairline"
+            className="lg:hidden grid h-10 w-10 place-items-center rounded-md border hairline"
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
             aria-controls="mobile-menu"
@@ -102,7 +102,7 @@ export default function Navbar({ theme, toggle }: { theme: Theme; toggle: () => 
                   <a
                     href={`#${n.id}`}
                     onClick={() => setOpen(false)}
-                    className={`flex items-baseline gap-4 py-4 font-display text-3xl font-bold ${active === n.id ? 'text-pink-ink' : ''}`}
+                    className={`flex items-baseline gap-4 py-4 font-display text-3xl font-bold ${active === n.id ? 'text-lime-ink' : ''}`}
                   >
                     <span className="font-mono text-xs text-lime-ink">0{i + 1}</span>
                     {n.label}

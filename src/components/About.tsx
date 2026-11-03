@@ -41,7 +41,7 @@ export default function About() {
               {interests.map((i) => (
                 <li key={i.k} className="group border-b border-r hairline p-5 sm:p-6 transition-colors hover:bg-surface">
                   <span className="font-mono text-[11px] text-lime-ink">[{i.k}]</span>
-                  <h3 className="mt-3 font-display text-lg font-semibold group-hover:text-pink-ink transition-colors">{i.t}</h3>
+                  <h3 className="mt-3 font-display text-lg font-semibold group-hover:text-lime-ink transition-colors">{i.t}</h3>
                   <p className="mt-2 text-sm text-muted leading-relaxed">{i.d}</p>
                 </li>
               ))}

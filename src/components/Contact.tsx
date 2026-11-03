@@ -28,7 +28,7 @@ function Field({ id, label, error, children }: { id: string; label: string; erro
 }
 
 const inputCls = (bad?: string) =>
-  `w-full border bg-transparent px-4 py-3 text-fg placeholder:text-muted/70 focus:outline-none transition-colors ${bad ? 'border-pink' : 'hairline focus:border-lime'}`;
+  `w-full rounded-md border bg-transparent px-4 py-3 text-fg placeholder:text-muted/70 focus:outline-none transition-colors ${bad ? 'border-pink' : 'hairline focus:border-lime'}`;
 
 export default function Contact() {
   const [f, setF] = useState<Fields>({ name: '', email: '', subject: '', message: '' });
@@ -84,17 +84,11 @@ export default function Contact() {
 
   return (
     <section id="contact" className="section border-t hairline overflow-hidden">
-      <svg className="pointer-events-none absolute inset-x-0 top-0 h-full w-full opacity-40" aria-hidden preserveAspectRatio="none" viewBox="0 0 1200 600">
-        <path d="M0 420 C 200 380, 300 200, 520 260 S 900 120, 1200 160" fill="none" stroke="#FF1493" strokeWidth="1" strokeDasharray="4 8">
-          <animate attributeName="stroke-dashoffset" from="0" to="-120" dur="6s" repeatCount="indefinite" />
-        </path>
-        <path d="M0 500 C 260 460, 420 330, 640 360 S 1000 260, 1200 300" fill="none" stroke="#7FFF00" strokeOpacity=".5" strokeWidth="1" />
-      </svg>
       <div className="container-x relative">
         <Reveal>
-          <p className="label text-lime-ink flex items-center gap-3"><span className="text-pink-ink">10</span><span className="h-px w-10 bg-pink" aria-hidden />Contact</p>
-          <h2 className="mt-4 font-display font-bold uppercase leading-[0.9] tracking-tight text-[clamp(2.4rem,7vw,6rem)]">
-            Let's turn ideas<br />into something <span className="text-pink-ink">real.</span>
+          <p className="label text-lime-ink flex items-center gap-3"><span className="text-muted">10</span><span className="h-px w-10 bg-fg/20" aria-hidden />Contact</p>
+          <h2 className="mt-4 font-display font-bold leading-[1.02] tracking-tight text-[clamp(2.2rem,5.5vw,4.6rem)]">
+            Let's turn ideas<br />into something <span className="text-lime-ink">real.</span>
           </h2>
           <p className="mt-6 max-w-2xl text-lg text-muted">I'm open to internship opportunities, data analytics projects, AI experiments, and collaborations that help turn ideas into practical solutions.</p>
         </Reveal>
@@ -104,9 +98,9 @@ export default function Contact() {
             <ul className="space-y-3">
               {contacts.map((c) => (
                 <li key={c.label}>
-                  <a href={c.href} className="group flex items-center gap-4 border hairline p-4 hover:border-pink transition-colors">
+                  <a href={c.href} className="group flex items-center gap-4 rounded-lg border hairline p-4 hover:border-lime transition-colors">
                     <c.icon className="h-5 w-5 text-lime-ink" aria-hidden />
-                    <span><span className="block font-mono text-[10px] uppercase tracking-[0.14em] text-muted">{c.label}</span><span className="text-lg font-medium break-all group-hover:text-pink-ink">{c.value}</span></span>
+                    <span><span className="block font-mono text-[10px] uppercase tracking-[0.14em] text-muted">{c.label}</span><span className="text-lg font-medium break-all group-hover:text-lime-ink">{c.value}</span></span>
                   </a>
                 </li>
               ))}
@@ -114,8 +108,8 @@ export default function Contact() {
             <ul className="grid grid-cols-2 gap-3">
               {ext.map((c) => (
                 <li key={c.label}>
-                  <ExtLink href={c.href} className="group flex h-full flex-col gap-2 border hairline p-4 hover:border-pink transition-colors">
-                    <span className="flex items-center justify-between"><c.icon className="h-4 w-4 text-lime-ink" /><ArrowUpRight className="h-4 w-4 text-muted group-hover:text-pink-ink" aria-hidden /></span>
+                  <ExtLink href={c.href} className="group flex h-full flex-col gap-2 rounded-lg border hairline p-4 hover:border-lime transition-colors">
+                    <span className="flex items-center justify-between"><c.icon className="h-4 w-4 text-lime-ink" /><ArrowUpRight className="h-4 w-4 text-muted group-hover:text-lime-ink" aria-hidden /></span>
                     <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted">{c.label}</span>
                     <span className="text-sm font-medium break-all">{c.value}</span>
                   </ExtLink>

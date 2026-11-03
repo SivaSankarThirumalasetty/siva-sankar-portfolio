@@ -61,13 +61,13 @@ const info: Record<TabId, { what: string; why: string; src: string; srcLabel: st
 export default function DataLab({ theme }: { theme: Theme }) {
   const [tab, setTab] = useState<TabId>('dist');
   const dark = theme === 'dark';
-  const LIME = dark ? '#7FFF00' : '#4E9A06'; // darker chartreuse shade on white for 3:1 graphic contrast
-  const PINK = '#FF1493';
-  const GRAY = dark ? '#5A5A5A' : '#A3A3A3';
+  const LIME = dark ? '#2DD4BF' : '#0F766E'; // teal (primary series)
+  const PINK = dark ? '#818CF8' : '#4F46E5'; // indigo (comparison series)
+  const GRAY = dark ? '#4B5563' : '#94A3B8';
   const GRID = dark ? 'rgba(255,255,255,.08)' : 'rgba(0,0,0,.08)';
   const LABEL = dark ? '#E5E5E5' : '#222';
   const tip = {
-    contentStyle: { background: dark ? '#0A0A0A' : '#fff', border: `1px solid ${dark ? 'rgba(127,255,0,.4)' : 'rgba(0,0,0,.15)'}`, borderRadius: 0, fontFamily: 'JetBrains Mono, monospace', fontSize: 12 },
+    contentStyle: { background: dark ? '#13161B' : '#fff', border: `1px solid ${dark ? 'rgba(255,255,255,.12)' : 'rgba(0,0,0,.12)'}`, borderRadius: 8, fontFamily: 'JetBrains Mono, monospace', fontSize: 12 },
     labelStyle: { color: dark ? '#fff' : '#000', fontWeight: 600 },
     itemStyle: { color: dark ? '#ddd' : '#222' },
     cursor: { fill: dark ? 'rgba(255,255,255,.04)' : 'rgba(0,0,0,.04)' },
@@ -92,7 +92,7 @@ export default function DataLab({ theme }: { theme: Theme }) {
             tabIndex={tab === t.id ? 0 : -1}
             className={`relative shrink-0 px-5 py-4 font-mono text-xs uppercase tracking-[0.08em] transition-colors ${tab === t.id ? 'text-fg' : 'text-muted hover:text-fg'}`}>
             {t.label}
-            {tab === t.id && <span className="absolute inset-x-0 bottom-0 h-0.5 bg-pink" aria-hidden />}
+            {tab === t.id && <span className="absolute inset-x-0 bottom-0 h-0.5 bg-lime" aria-hidden />}
           </button>
         ))}
       </div>
@@ -100,7 +100,7 @@ export default function DataLab({ theme }: { theme: Theme }) {
       <div role="tabpanel" id={`panel-${tab}`} aria-labelledby={`tab-${tab}`} className="p-4 sm:p-8">
         <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
           <span className="chip !text-lime-ink !border-lime/50">● Real project data · as reported in the README{cur.approx ? ' (≈ approximate values)' : ''}</span>
-          <a href={cur.src} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 font-mono text-[11px] text-muted hover:text-pink-ink">
+          <a href={cur.src} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 font-mono text-[11px] text-muted hover:text-lime-ink">
             Source: {cur.srcLabel} <ExternalLink className="h-3 w-3" aria-hidden /><span className="sr-only"> (opens in a new tab)</span>
           </a>
         </div>
@@ -175,7 +175,7 @@ export default function DataLab({ theme }: { theme: Theme }) {
           <div><p className="label text-lime-ink">Why it matters</p><p className="mt-2 text-sm text-fg/90 leading-relaxed">{cur.why}</p></div>
         </div>
         <p className="mt-6 text-xs text-muted">
-          Colour key: chartreuse and hot pink only separate series and carry no emotional meaning (grey marks neutral or baseline values). Every series is named in the legend, labels or tooltip.
+          Colour key: teal and indigo only separate series and carry no emotional meaning (grey marks neutral or baseline values). Every series is named in the legend, labels or tooltip.
         </p>
       </div>
     </div>

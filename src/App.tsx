@@ -6,7 +6,6 @@ import Experience from './components/Experience';
 import Footer from './components/Footer';
 import Hero from './components/Hero';
 import Navbar from './components/Navbar';
-import ScrollBackdrop from './components/ScrollBackdrop';
 import Projects from './components/Projects';
 import Resume from './components/Resume';
 import Services from './components/Services';
@@ -21,10 +20,9 @@ const DataLab = lazy(() => import('./components/DataLab'));
 export default function App() {
   const { theme, toggle } = useTheme();
   return (
-    <div className="grain">
-      <ScrollBackdrop />
+    <div>
       <Navbar theme={theme} toggle={toggle} />
-      <main id="main" className="relative z-10">
+      <main id="main">
         <Hero />
         <About />
         <Skills />
@@ -45,7 +43,7 @@ export default function App() {
         <Resume />
         <Contact />
       </main>
-      <div className="relative z-10"><Footer /></div>
+      <Footer />
     </div>
   );
 }

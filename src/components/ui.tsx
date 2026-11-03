@@ -21,8 +21,8 @@ export function SectionHeading({ index, kicker, title, intro }: { index: string;
     <Reveal className="mb-12 sm:mb-16 grid gap-6 lg:grid-cols-12 lg:items-end">
       <div className="lg:col-span-7">
         <p className="label text-lime-ink flex items-center gap-3">
-          <span className="text-pink-ink">{index}</span>
-          <span className="h-px w-10 bg-pink" aria-hidden />
+          <span className="text-muted">{index}</span>
+          <span className="h-px w-10 bg-fg/20" aria-hidden />
           {kicker}
         </p>
         <h2 className="mt-4 text-4xl sm:text-5xl lg:text-6xl font-bold leading-[0.95] tracking-tight">{title}</h2>
