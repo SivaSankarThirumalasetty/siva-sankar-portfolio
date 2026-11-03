@@ -61,16 +61,16 @@ const info: Record<TabId, { what: string; why: string; src: string; srcLabel: st
 export default function DataLab({ theme }: { theme: Theme }) {
   const [tab, setTab] = useState<TabId>('dist');
   const dark = theme === 'dark';
-  const LIME = dark ? '#2DD4BF' : '#0F766E'; // teal (primary series)
-  const PINK = dark ? '#818CF8' : '#4F46E5'; // indigo (comparison series)
-  const GRAY = dark ? '#4B5563' : '#94A3B8';
+  const LIME = dark ? '#E8C872' : '#8A6A1F'; // champagne gold (primary series)
+  const PINK = dark ? '#A78BFA' : '#6D28D9'; // violet (comparison series)
+  const GRAY = dark ? '#475069' : '#A8A29E';
   const GRID = dark ? 'rgba(255,255,255,.08)' : 'rgba(0,0,0,.08)';
   const LABEL = dark ? '#E5E5E5' : '#222';
   const tip = {
-    contentStyle: { background: dark ? '#13161B' : '#fff', border: `1px solid ${dark ? 'rgba(255,255,255,.12)' : 'rgba(0,0,0,.12)'}`, borderRadius: 8, fontFamily: 'JetBrains Mono, monospace', fontSize: 12 },
+    contentStyle: { background: dark ? 'rgba(17,22,36,.92)' : 'rgba(255,255,255,.95)', border: `1px solid ${dark ? 'rgba(255,255,255,.12)' : 'rgba(0,0,0,.12)'}`, borderRadius: 8, fontFamily: 'JetBrains Mono, monospace', fontSize: 12 },
     labelStyle: { color: dark ? '#fff' : '#000', fontWeight: 600 },
     itemStyle: { color: dark ? '#ddd' : '#222' },
-    cursor: { fill: dark ? 'rgba(255,255,255,.04)' : 'rgba(0,0,0,.04)' },
+    cursor: { fill: dark ? 'rgba(255,255,255,.05)' : 'rgba(0,0,0,.04)' },
   };
   const anim = { animationDuration: 700 };
   const lbl = { fill: LABEL, fontSize: 11, fontFamily: 'JetBrains Mono, monospace' };
@@ -175,7 +175,7 @@ export default function DataLab({ theme }: { theme: Theme }) {
           <div><p className="label text-lime-ink">Why it matters</p><p className="mt-2 text-sm text-fg/90 leading-relaxed">{cur.why}</p></div>
         </div>
         <p className="mt-6 text-xs text-muted">
-          Colour key: teal and indigo only separate series and carry no emotional meaning (grey marks neutral or baseline values). Every series is named in the legend, labels or tooltip.
+          Colour key: gold and violet only separate series and carry no emotional meaning (grey marks neutral or baseline values). Every series is named in the legend, labels or tooltip.
         </p>
       </div>
     </div>

@@ -48,14 +48,14 @@ export default function Certificates() {
           <div className="flex flex-wrap gap-2" role="group" aria-label="Filter certificates by category">
             {visibleCats.map((c) => (
               <button key={c} type="button" onClick={() => setCat(c)} aria-pressed={cat === c}
-                className={`px-3 py-2 font-mono text-[11px] uppercase tracking-[0.08em] border transition-colors ${cat === c ? 'bg-lime text-onaccent border-lime rounded-md' : 'hairline rounded-md text-muted hover:text-fg hover:border-lime'}`}>{c}</button>
+                className={`px-3 py-2 font-mono text-[11px] uppercase tracking-[0.08em] border transition-colors ${cat === c ? 'bg-lime text-onaccent border-lime rounded-full' : 'glass rounded-full text-muted hover:text-fg'}`}>{c}</button>
             ))}
           </div>
           <label className="relative block lg:w-72">
             <span className="sr-only">Search certificates by title</span>
             <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted" aria-hidden />
             <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search by title…"
-              className="w-full rounded-md border hairline bg-transparent py-2.5 pl-9 pr-3 text-sm placeholder:text-muted focus:border-lime focus:outline-none" />
+              className="w-full rounded-full glass py-2.5 pl-9 pr-4 text-sm placeholder:text-muted focus:border-lime focus:outline-none" />
           </label>
         </div>
 

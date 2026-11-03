@@ -21,6 +21,7 @@ export default function App() {
   const { theme, toggle } = useTheme();
   return (
     <div>
+      <div className="ambient" aria-hidden="true"><span className="o1" /><span className="o2" /><span className="o3" /></div>
       <Navbar theme={theme} toggle={toggle} />
       <main id="main">
         <Hero />

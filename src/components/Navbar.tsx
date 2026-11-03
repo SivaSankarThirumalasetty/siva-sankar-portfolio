@@ -12,7 +12,7 @@ export function ThemeToggle({ theme, toggle }: { theme: Theme; toggle: () => voi
     <button
       type="button"
       onClick={toggle}
-      className="grid h-10 w-10 place-items-center rounded-md border hairline text-fg hover:text-lime-ink hover:border-lime transition-colors"
+      className="grid h-10 w-10 place-items-center rounded-full glass text-fg hover:text-lime-ink hover:border-lime transition-colors"
       aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
       title={dark ? 'Light mode' : 'Dark mode'}
     >
@@ -42,7 +42,7 @@ export default function Navbar({ theme, toggle }: { theme: Theme; toggle: () => 
   }, [open]);
 
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 border-b transition-colors ${scrolled ? 'bg-bg/85 backdrop-blur-md hairline' : 'border-transparent bg-transparent'}`}>
+    <header className={`fixed inset-x-0 top-0 z-50 border-b transition-colors ${scrolled ? 'glass !border-x-0 !border-t-0 !rounded-none' : 'border-transparent bg-transparent'}`}>
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-50 focus:bg-lime focus:px-3 focus:py-2 focus:text-onaccent">Skip to content</a>
       <nav className="container-x flex h-16 items-center justify-between gap-4" aria-label="Primary">
         <a href="#home" className="group flex items-center gap-2 font-display text-[15px] font-bold tracking-[0.14em]">
@@ -70,12 +70,12 @@ export default function Navbar({ theme, toggle }: { theme: Theme; toggle: () => 
 
         <div className="flex items-center gap-2">
           <ThemeToggle theme={theme} toggle={toggle} />
-          <a href={asset(profile.resumePdf)} download className="hidden sm:inline-flex btn-lime !py-2.5 !px-4">
+          <a href={asset(profile.resumePdf)} download className="hidden sm:inline-flex btn-gold !py-2.5 !px-5">
             <Download className="h-4 w-4" aria-hidden /> Resume
           </a>
           <button
             type="button"
-            className="lg:hidden grid h-10 w-10 place-items-center rounded-md border hairline"
+            className="lg:hidden grid h-10 w-10 place-items-center rounded-full glass"
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
             aria-controls="mobile-menu"
@@ -94,7 +94,7 @@ export default function Navbar({ theme, toggle }: { theme: Theme; toggle: () => 
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.2 }}
-            className="lg:hidden fixed inset-x-0 top-16 bottom-0 bg-bg border-t hairline overflow-y-auto"
+            className="lg:hidden fixed inset-x-0 top-16 bottom-0 bg-bg/95 backdrop-blur-xl border-t hairline overflow-y-auto"
           >
             <ul className="container-x py-6">
               {nav.map((n, i) => (

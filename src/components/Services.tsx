@@ -10,11 +10,11 @@ export default function Services() {
       <div className="container-x">
         <SectionHeading index="07" kicker="Services & technical interests" title={<>Where I can <span className="text-lime-ink">help</span>.</>}
           intro="Developing capabilities I'm practising through projects and coursework — suited to internships, student collaborations and small analysis tasks, not presented as commercial experience." />
-        <ul className="grid gap-px bg-fg/10 border hairline sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((s, i) => {
             const Icon = icons[i % icons.length];
             return (
-              <Reveal as="li" key={s.title} delay={(i % 3) * 0.05} className="group h-full bg-bg p-6 sm:p-7 transition-colors hover:bg-surface">
+              <Reveal as="li" key={s.title} delay={(i % 3) * 0.05} className="group h-full glass rounded-2xl p-6 sm:p-7 transition-transform duration-300 hover:-translate-y-0.5">
                   <div className="flex items-center justify-between">
                     <Icon className="h-6 w-6 text-lime-ink" strokeWidth={1.5} aria-hidden />
                     <span className="font-mono text-[11px] text-muted">{String(i + 1).padStart(2, '0')}</span>
@@ -29,7 +29,7 @@ export default function Services() {
               </Reveal>
             );
           })}
-          <Reveal as="li" className="relative bg-surface p-6 sm:p-8 lg:col-span-2 flex flex-col justify-between gap-6 overflow-hidden">
+          <Reveal as="li" className="relative glass rounded-2xl p-6 sm:p-8 lg:col-span-2 flex flex-col justify-between gap-6 overflow-hidden">
             <p className="relative label text-lime-ink">Have a dataset or an idea?</p>
             <p className="relative font-display text-3xl sm:text-4xl font-bold leading-tight text-fg">Let's explore it <span className="text-lime-ink">together.</span></p>
             <a href="#contact" className="relative btn-pink self-start">Start a conversation</a>

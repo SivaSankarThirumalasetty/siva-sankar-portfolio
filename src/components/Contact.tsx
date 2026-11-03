@@ -28,7 +28,7 @@ function Field({ id, label, error, children }: { id: string; label: string; erro
 }
 
 const inputCls = (bad?: string) =>
-  `w-full rounded-md border bg-transparent px-4 py-3 text-fg placeholder:text-muted/70 focus:outline-none transition-colors ${bad ? 'border-pink' : 'hairline focus:border-lime'}`;
+  `w-full rounded-xl border bg-bg/40 px-4 py-3 text-fg placeholder:text-muted/70 focus:outline-none transition-colors ${bad ? 'border-pink' : 'hairline focus:border-lime'}`;
 
 export default function Contact() {
   const [f, setF] = useState<Fields>({ name: '', email: '', subject: '', message: '' });
@@ -98,7 +98,7 @@ export default function Contact() {
             <ul className="space-y-3">
               {contacts.map((c) => (
                 <li key={c.label}>
-                  <a href={c.href} className="group flex items-center gap-4 rounded-lg border hairline p-4 hover:border-lime transition-colors">
+                  <a href={c.href} className="group flex items-center gap-4 rounded-2xl glass p-4 hover:border-lime transition-colors">
                     <c.icon className="h-5 w-5 text-lime-ink" aria-hidden />
                     <span><span className="block font-mono text-[10px] uppercase tracking-[0.14em] text-muted">{c.label}</span><span className="text-lg font-medium break-all group-hover:text-lime-ink">{c.value}</span></span>
                   </a>
@@ -108,7 +108,7 @@ export default function Contact() {
             <ul className="grid grid-cols-2 gap-3">
               {ext.map((c) => (
                 <li key={c.label}>
-                  <ExtLink href={c.href} className="group flex h-full flex-col gap-2 rounded-lg border hairline p-4 hover:border-lime transition-colors">
+                  <ExtLink href={c.href} className="group flex h-full flex-col gap-2 rounded-2xl glass p-4 hover:border-lime transition-colors">
                     <span className="flex items-center justify-between"><c.icon className="h-4 w-4 text-lime-ink" /><ArrowUpRight className="h-4 w-4 text-muted group-hover:text-lime-ink" aria-hidden /></span>
                     <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted">{c.label}</span>
                     <span className="text-sm font-medium break-all">{c.value}</span>

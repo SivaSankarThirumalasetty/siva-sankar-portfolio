@@ -20,7 +20,7 @@ export default function Skills() {
         <div className="mb-8 flex flex-wrap items-center gap-2" role="group" aria-label="Filter skills">
           {([['all', 'All skills'], ['practised', 'Practised'], ['learning', 'Currently learning']] as [Filter, string][]).map(([k, l]) => (
             <button key={k} type="button" onClick={() => setFilter(k)} aria-pressed={filter === k}
-              className={`px-4 py-2 font-mono text-xs uppercase tracking-[0.1em] border transition-colors ${filter === k ? 'bg-lime text-onaccent border-lime rounded-md' : 'hairline rounded-md text-muted hover:text-fg hover:border-lime'}`}>
+              className={`px-4 py-2 font-mono text-xs uppercase tracking-[0.1em] border transition-colors ${filter === k ? 'bg-lime text-onaccent border-lime rounded-full' : 'glass rounded-full text-muted hover:text-fg'}`}>
               {k === 'practised' && <span className="mr-2 inline-block h-2 w-2 bg-lime align-middle" aria-hidden />}
               {k === 'learning' && <span className="mr-2 inline-block h-2 w-2 border border-pink align-middle" aria-hidden />}
               {l}
@@ -28,12 +28,12 @@ export default function Skills() {
           ))}
         </div>
 
-        <div className="grid gap-px bg-fg/10 md:grid-cols-2 border hairline">
+        <div className="grid gap-5 md:grid-cols-2">
           {skillGroups.map((g, gi) => {
             const Icon = icons[g.id as keyof typeof icons];
             const shown = g.skills.filter((s) => filter === 'all' || s.level === filter);
             return (
-              <Reveal key={g.id} delay={gi * 0.05} className="bg-bg p-6 sm:p-8">
+              <Reveal key={g.id} delay={gi * 0.05} className="glass rounded-2xl p-6 sm:p-8">
                 <div className="flex items-center justify-between">
                   <p className="label text-lime-ink">{g.code} / {g.title}</p>
                   <Icon className="h-5 w-5 text-muted" aria-hidden />

@@ -24,7 +24,7 @@ export default function About() {
             <p className="mt-6 text-muted leading-relaxed">{profile.bio.split('. ').slice(1).join('. ')}</p>
 
             <div id="education" className="card mt-10 p-6 sm:p-7 scroll-mt-24">
-              <span className="absolute left-0 top-0 h-full w-1 bg-lime" aria-hidden />
+              <span className="absolute left-0 top-6 bottom-6 w-[3px] rounded-full bg-lime" aria-hidden />
               <p className="label text-lime-ink flex items-center gap-2"><GraduationCap className="h-4 w-4" aria-hidden /> Education</p>
               <h3 className="mt-3 text-2xl font-bold">B.Tech — Computer Science and Data Science</h3>
               <p className="mt-2 text-fg/90">{profile.institution}</p>
@@ -37,9 +37,9 @@ export default function About() {
           </Reveal>
 
           <Reveal className="lg:col-span-6" delay={0.1}>
-            <ul className="grid sm:grid-cols-2 border-t border-l hairline">
+            <ul className="grid gap-3 sm:grid-cols-2">
               {interests.map((i) => (
-                <li key={i.k} className="group border-b border-r hairline p-5 sm:p-6 transition-colors hover:bg-surface">
+                <li key={i.k} className="group glass rounded-2xl p-5 sm:p-6 transition-transform duration-300 hover:-translate-y-0.5">
                   <span className="font-mono text-[11px] text-lime-ink">[{i.k}]</span>
                   <h3 className="mt-3 font-display text-lg font-semibold group-hover:text-lime-ink transition-colors">{i.t}</h3>
                   <p className="mt-2 text-sm text-muted leading-relaxed">{i.d}</p>

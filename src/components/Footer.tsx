@@ -4,7 +4,7 @@ import { ExtLink, GithubIcon, LinkedinIcon } from './ui';
 
 export default function Footer() {
   return (
-    <footer className="border-t hairline bg-bg">
+    <footer className="glass !rounded-none !border-x-0 !border-b-0">
       <div className="container-x py-14">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-5">
@@ -19,9 +19,9 @@ export default function Footer() {
             </ul>
           </nav>
           <div className="md:col-span-3 flex md:justify-end items-start gap-3">
-            <ExtLink href={links.github} className="grid h-11 w-11 place-items-center border hairline hover:border-lime hover:text-lime-ink"><GithubIcon className="h-5 w-5" /><span className="sr-only">GitHub</span></ExtLink>
-            <ExtLink href={links.linkedin} className="grid h-11 w-11 place-items-center border hairline hover:border-lime hover:text-lime-ink"><LinkedinIcon className="h-5 w-5" /><span className="sr-only">LinkedIn</span></ExtLink>
-            <a href="#home" className="grid h-11 w-11 place-items-center rounded-md bg-lime text-onaccent hover:bg-lime/85" aria-label="Back to top"><ArrowUp className="h-5 w-5" aria-hidden /></a>
+            <ExtLink href={links.github} className="grid h-11 w-11 place-items-center rounded-full glass hover:text-lime-ink"><GithubIcon className="h-5 w-5" /><span className="sr-only">GitHub</span></ExtLink>
+            <ExtLink href={links.linkedin} className="grid h-11 w-11 place-items-center rounded-full glass hover:text-lime-ink"><LinkedinIcon className="h-5 w-5" /><span className="sr-only">LinkedIn</span></ExtLink>
+            <a href="#home" className="grid h-11 w-11 place-items-center btn-gold !p-0 !rounded-full" aria-label="Back to top"><ArrowUp className="h-5 w-5" aria-hidden /></a>
           </div>
         </div>
         <div className="mt-12 flex flex-col gap-2 border-t hairline pt-6 font-mono text-[11px] text-muted sm:flex-row sm:justify-between">

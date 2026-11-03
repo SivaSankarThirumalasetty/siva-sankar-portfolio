@@ -11,7 +11,7 @@ const line = {
 function Portrait() {
   return (
     <div className="relative mx-auto w-[min(76vw,380px)] aspect-square">
-      <div className="absolute inset-0 rounded-full border border-lime/40" aria-hidden />
+      <div className="absolute inset-0 rounded-full p-[2px] bg-gradient-to-br from-lime via-lime/20 to-pink/60" aria-hidden><div className="h-full w-full rounded-full bg-bg/60 backdrop-blur" /></div>
       <div className="absolute inset-3 rounded-full overflow-hidden bg-jet shadow-2xl shadow-black/20">
         {profile.photo ? (
           <picture>
@@ -37,7 +37,7 @@ export default function Hero() {
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }} className="flex flex-wrap items-center gap-3">
             <span className="label text-lime-ink">{profile.meta}</span>
             {profile.openToInternships && (
-              <span className="chip !text-fg !rounded-full">
+              <span className="chip glass !text-fg !rounded-full">
                 <span className="relative flex h-2 w-2" aria-hidden>
                                     <span className="relative inline-flex h-2 w-2 rounded-full bg-lime" />
                 </span>

@@ -36,7 +36,7 @@ function DocShieldPreview() {
 
 function SentimentPreview() {
   // Real class split after cleaning, as reported in the project README (n = 14,427 per README; shares as printed).
-  const d = [{ l: 'Negative', v: 62.7, c: '#818CF8' }, { l: 'Neutral', v: 21.2, c: '#4B5563' }, { l: 'Positive', v: 16.1, c: '#2DD4BF' }];
+  const d = [{ l: 'Negative', v: 62.7, c: '#A78BFA' }, { l: 'Neutral', v: 21.2, c: '#4B5563' }, { l: 'Positive', v: 16.1, c: '#E8C872' }];
   return (
     <div className="h-full bg-jet p-4 sm:p-5 font-mono text-[11px] text-white/80">
       <div className="flex justify-between border-b border-white/10 pb-3"><span className="text-brandteal">SENTIMENT // CLASS SPLIT</span><span className="text-white/40">real · README</span></div>
@@ -65,7 +65,7 @@ function AnalyticsPreview() {
           </div>
         ))}
       </div>
-      <svg viewBox="0 0 240 50" className="mt-4 w-full"><polyline fill="none" stroke="#2DD4BF" strokeWidth="1.5" points="0,40 30,34 60,38 90,22 120,26 150,14 180,18 210,8 240,12" /></svg>
+      <svg viewBox="0 0 240 50" className="mt-4 w-full"><polyline fill="none" stroke="#E8C872" strokeWidth="1.5" points="0,40 30,34 60,38 90,22 120,26 150,14 180,18 210,8 240,12" /></svg>
     </div>
   );
 }

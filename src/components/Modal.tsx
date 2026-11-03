@@ -35,9 +35,9 @@ export default function Modal({ open, onClose, title, children, wide = false }: 
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}>
           <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={onClose} aria-hidden />
           <motion.div ref={ref} role="dialog" aria-modal="true" aria-labelledby={titleId}
-            className={`relative w-full ${wide ? 'max-w-5xl' : 'max-w-3xl'} max-h-[92svh] overflow-y-auto rounded-t-xl sm:rounded-xl bg-bg border hairline shadow-2xl`}
+            className={`relative w-full ${wide ? 'max-w-5xl' : 'max-w-3xl'} max-h-[92svh] overflow-y-auto rounded-t-2xl sm:rounded-2xl bg-bg/90 backdrop-blur-2xl border hairline shadow-2xl`}
             initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 30, opacity: 0 }} transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}>
-            <div className="sticky top-0 z-10 flex items-center justify-between gap-4 border-b hairline bg-bg/95 backdrop-blur px-5 py-4">
+            <div className="sticky top-0 z-10 flex items-center justify-between gap-4 border-b hairline bg-bg/80 backdrop-blur-xl px-5 py-4">
               <h2 id={titleId} className="font-display text-lg sm:text-xl font-bold leading-tight">{title}</h2>
               <button type="button" data-autofocus onClick={onClose} className="grid h-10 w-10 shrink-0 place-items-center border hairline hover:border-lime hover:text-lime-ink" aria-label="Close dialog">
                 <X className="h-5 w-5" aria-hidden />
